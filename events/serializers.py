@@ -15,11 +15,11 @@ class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model=Event
         fields=[
-            'id','title','description','banner_image','date','start_time','end_time','location','venue_name','city','country','capacity','organizer','category','total_registrations','is_full','is_past','available_spots','created_at','updated_at',
+            'id','title','description','banner_image','date','start_time','end_time','location','venue_name','city','country','capacity','organizer','category','total_registrations','is_full','is_past','is_registered','available_spots','created_at','updated_at',
         ]
         read_only_fields = ['id', 'created_at', 'updated_at']
     
-    def is_registered(self,obj):
+    def get_is_registered(self,obj):
         request=self.context.get('request')
         if request and request.user.is_authenticated:
             return obj.registrations.filter(user=request.user).exists()

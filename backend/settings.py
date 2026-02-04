@@ -96,7 +96,7 @@ DATABASES = {
     }
 }
 
-
+GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
@@ -163,3 +163,4 @@ CORS_ALLOWED_ORIGINS = [
      "http://localhost:5173",  # Vite default
     "http://127.0.0.1:5173",
 ]
+
